@@ -1,0 +1,21 @@
+progress {
+/* style rules */
+color: rgba(65, 131, 215, 0.8);
+background-color: rgba(171,171,171,0.6);
+width: 150px;
+height: 25px;
+border: 0;
+}
+progress::-webkit-progress-bar {
+/* style rules */
+background-color: rgba(171,171,171,0.6);
+width: 100%;
+}
+progress::-webkit-progress-value {
+/* style rules */
+background-color: rgba(65, 131, 215, 0.8) !important;
+}
+progress::-moz-progress-bar {
+/* style rules */
+background-color: rgba(65, 131, 215, 0.8);
+}

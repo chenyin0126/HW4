@@ -1,0 +1,59 @@
+public class MyGraphicsLogic {
+		/**
+		 * This method is called at system startup. It should be used to bind the UI
+		 * actions together before the UI is displayed to the user.
+		 */
+		public static void bindUI(final UserInterface ui) {
+			
+			ButtonClicked preferences = new ButtonClicked();
+
+			ui.addPreferencesButtonClickAction(preferences);
+
+			CookieSelected cookie = new CookieSelected();
+
+			
+
+
+		}
+	}
+	
+	public interface UserInterface {
+		/**
+		 * Registers a task to be executed any time the "preferences" button is clicked.
+		 * (E.g. {@link ButtonClicked#onClick()} is called when the button is
+		 * clicked.)
+		 */
+		public void addPreferencesButtonClickAction(ButtonClicked action);
+		
+		/**
+		 * Pops-up a dialog that asks "What's your favorite cookie?" 
+		 * When the user makes a selection, the UI then executes the
+		 * {@link CookieSelected#onSelection(Cookie)} callback, passing in the
+		 * selected cookie.
+		 */
+		public void askUserFavoriteCookie(CookieSelected selection);
+		
+		/**
+		 * Updates the user's "favorite cookie" icon in the corner of the screen
+		 */
+		public void showCookie(Cookie cookie);
+	}
+	
+	public interface ButtonClicked {
+		/**
+		 * Called when a user clicks on a button
+		 */
+		public void onClick();
+	}
+	
+	public interface CookieSelected {
+		/**
+		 * Called when a user selects a cookie
+		 */
+		public void onSelection(Cookie cookie);
+	}
+	
+	public enum Cookie {
+		CHOCOLATE_CHIP,
+		OATMEAL
+	}
